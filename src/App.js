@@ -10,7 +10,24 @@ export default function App() {
       {blobs.map(blob => (
         <BlobItem key={blob.id} blob={blob} />
       ))}
+      {blobs.length === 0 && <EmptyState />}
     </div>
+  );
+}
+
+function EmptyState() {
+  return (
+    <article>
+      <p>
+        <strong>blobbox</strong> is a web-based, hackable PWA that stores blobs
+        of various kinds. To get started, put in some data by:
+      </p>
+      <ul>
+        <li>Dragging it into the window</li>
+        <li>Pasting it (Ctrl-V)</li>
+        <li>Sharing it to the PWA (on Android; must install first)</li>
+      </ul>
+    </article>
   );
 }
 
