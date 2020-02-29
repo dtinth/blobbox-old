@@ -1,0 +1,25 @@
+body {
+  font-family: Arimo, sans-serif;
+  background: #353433;
+  color: #fff;
+}
+
+textarea {
+  background: #090807;
+  color: #bef;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.blob-title {
+  height: 2em;
+  font-weight: bold;
+}
+
+.blob-text {
+  height: 8em;
+}
+
+img {
+  max-width: 100%;
+}
