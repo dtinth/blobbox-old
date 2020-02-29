@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./styles.css";
-import db from "./db";
+import db, { onDbChanged } from "./db";
 
 export default function App() {
   const blobs = useBlobs();
@@ -115,11 +115,13 @@ function ShowCurtain({ children }) {
 function useBlobs() {
   const [blobs, setBlobs] = useState([]);
   useEffect(() => {
-    (async () => {
+    const load = async () => {
       const rows = await db.blobs.toArray();
       setBlobs(rows);
       window.blobs = rows;
-    })();
+    };
+    load();
+    return onDbChanged(load);
   }, []);
   return blobs;
 }

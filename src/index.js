@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import App from "./App";
-import db from "./db";
+import db, { notifyDbChanges } from "./db";
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(
@@ -35,6 +35,7 @@ async function handleData(dt) {
           .map(t => [t, dt.getData(t)])
       )
     });
+    notifyDbChanges();
   } catch (e) {
     alert(e);
   }
